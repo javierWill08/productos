@@ -40,7 +40,7 @@ jobs:
         with:
               aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
               aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              aws-region: eu-central-1
+              aws-region: us-east-1
       
       - name: Update kubeconfig
         run: |
@@ -49,3 +49,9 @@ jobs:
       - name: Install Helm
         run: |
           curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+      
+      - name: Deploy usando helm
+        run: |
+           helm upgrade --install producto ./productos \
+           --namespace default 
+
