@@ -34,6 +34,12 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/micro-products:latest
 
 
+  deploy: 
+    name: Deploy aplication in cluster eks
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
 
       - name: Configurar AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
