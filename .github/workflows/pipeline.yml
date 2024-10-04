@@ -40,6 +40,9 @@ jobs:
     needs: build
 
     steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo traer el codigo nuevamente
 
       - name: Configurar AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
